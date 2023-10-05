@@ -8,11 +8,13 @@ export default function TextForm(props) {
   const handleUpCLick = () =>{
     let newText = text.toUpperCase();
     setText(newText)
+    props.showAlert('Converted to UpperCase', 'success')
   }
 
   const handleLoCLick = () =>{
     let newText = text.toLowerCase();
     setText(newText)
+    props.showAlert('Converted to LowerCase', 'success')
   }
   const handleEmailCLick = () =>{
     let regex = /\S+[a-z0-9]@[a-z0-9\.]+/img;
@@ -26,6 +28,12 @@ export default function TextForm(props) {
   const handleExSpaceCLick = () =>{
     let newText = text.split(/[ ]+/)
     setText(newText.join(' '))
+  }
+  const handleCopyCLick = () =>{
+    const text = document.getElementById("myBox");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+    setText('Copied to Clipboard', 'success')
   }
 
   const handleOnChange = (event) =>{
@@ -44,6 +52,7 @@ export default function TextForm(props) {
         <button className="btn btn-primary mx-1" onClick={handleLoCLick}>Convert to LowerCase</button>
         <button className="btn btn-primary mx-1" onClick={handleEmailCLick}>Extract Email</button>
         <button className="btn btn-primary mx-1" onClick={handleExSpaceCLick}>Remove Extra Spaces</button>
+        <button className="btn btn-primary mx-1" onClick={handleCopyCLick}>Copy Text</button>
         <button className="btn btn-primary mx-1" onClick={handleClearCLick}>Clear</button>
     </div>
     <hr/>
@@ -55,7 +64,7 @@ export default function TextForm(props) {
     <p>Minutes to read: {0.008 * wordCOunt}</p>
 
     <h2>Preview</h2>
-    <p>{text}</p>
+    <p>{text.length > 0 ? text:'Enter the text to preview it here' }</p>
     </div>
     </>
   )
