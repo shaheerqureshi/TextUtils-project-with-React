@@ -19,6 +19,10 @@ export default function TextForm(props) {
     let newText = text.match(regex)
     setText(newText.toString())
   }
+  const handleClearCLick = () =>{
+    let NewText = ''
+    setText(NewText)
+  }
 
   const handleOnChange = (event) =>{
     setText(event.target.value)
@@ -35,6 +39,7 @@ export default function TextForm(props) {
         <button className="btn btn-primary mx-1" onClick={handleUpCLick}>Convert to Uppercase</button>
         <button className="btn btn-primary mx-1" onClick={handleLoCLick}>Convert to LowerCase</button>
         <button className="btn btn-primary mx-1" onClick={handleEmailCLick}>Extract Email</button>
+        <button className="btn btn-primary mx-1" onClick={handleClearCLick}>Clear</button>
     </div>
     <hr/>
 
