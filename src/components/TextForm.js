@@ -14,6 +14,11 @@ export default function TextForm(props) {
     let newText = text.toLowerCase();
     setText(newText)
   }
+  const handleEmailCLick = () =>{
+    let regex = /\S+[a-z0-9]@[a-z0-9\.]+/img;
+    let newText = text.match(regex)
+    setText(newText.toString())
+  }
 
   const handleOnChange = (event) =>{
     setText(event.target.value)
@@ -29,6 +34,7 @@ export default function TextForm(props) {
         </div>
         <button className="btn btn-primary mx-1" onClick={handleUpCLick}>Convert to Uppercase</button>
         <button className="btn btn-primary mx-1" onClick={handleLoCLick}>Convert to LowerCase</button>
+        <button className="btn btn-primary mx-1" onClick={handleEmailCLick}>Extract Email</button>
     </div>
     <hr/>
 
