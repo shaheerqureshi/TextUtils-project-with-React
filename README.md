@@ -1,5 +1,6 @@
-# Getting Started with Create React App
 
+![textUtils](https://github.com/shaheerqureshi/TextUtils-project-with-React/assets/54498612/bdaa1a93-8bde-477e-b110-92547501d487)
+# Getting Started with Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
